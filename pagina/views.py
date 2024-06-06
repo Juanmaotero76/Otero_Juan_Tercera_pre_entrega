@@ -7,3 +7,9 @@ def inicio (request):
     return render(request, 'inicio/index.html')
 
 # Create your views here.
+def loguin (request):
+    return render (request, 'loguin.html' )
+
+def crear_usuario (request):
+    
+    return render (request, 'nuevo_usuario.html')
