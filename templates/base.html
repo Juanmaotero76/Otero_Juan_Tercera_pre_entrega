@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>
+            {% block titulo %}
+            Landing Page - Start Bootstrap Theme
+            {% endblock titulo %}
+        </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -23,7 +27,13 @@
                 <a class="navbar-brand" href={% url 'probando' %}>probando</a>
                 <a class="navbar-brand" href={% url 'crear_auto' 'fiat' 'cronos' %}>Nuevo auto</a> {% endcomment %}
                 {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
-                <a class="navbar-brand" href={% url 'loguin' %}>Loguin</a>
+                {% block Botones %}
+                {% comment %} <a class="navbar-brand" href={% url 'loguin' %}>Loguin</a> {% endcomment %}
+                {% comment %} <a class="navbar-brand" href={% url 'crear_usuario' 'JUAN' 'OTERO' 'algo@gmail.com' '123456' %}>Crear usuario</a> {% endcomment %}
+                <a class="navbar-brand" href={% url 'crear_usuario' %}>Crear usuario</a>
+                <a class="navbar-brand" href={% url 'ver_usuarios' %}>Ver listado de usuarios</a>
+                {% endblock Botones %}
+                
             </div>
         </nav>
         <!-- Masthead-->
@@ -38,14 +48,7 @@
                                     
                                 {% endblock h1_header %}
                             </h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
+                           
                            
                         </div>
                     </div>

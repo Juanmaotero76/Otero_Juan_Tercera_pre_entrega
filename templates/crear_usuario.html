@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Nuevo usuario
+{% endblock titulo %}
+
+
+{% block h1_header %}
+    creacion de usuario
+{% endblock h1_header %}  
+
+{% block Botones %}
+
+<a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
+{% endblock Botones %}
+
+{% block main %}
+<form action={% url 'crear_usuario' %} method="POST">
+    {% csrf_token %}
+    {% comment %} <p>
+        Nombre:
+        <input type="text" name='nombre' placeholder="Nombre">
+        
+    </p>
+    <p>
+        Apellido:
+        <input type="text" name='apellido'placeholder="Apellido">
+
+    </p>
+    <p>
+        Apellido:
+        <input type="text" name='email' placeholder="Email">
+
+    </p>
+    <p>
+        Apellido:
+        <input type="text" name='contrasenia' placeholder="Contraseña">
+
+    </p> {% endcomment %}
+    {{formulario}}    
+    <input type="submit" value='Crear'>
+
+    
+</form> 
+
+{% endblock main %}

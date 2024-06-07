@@ -1,15 +1,26 @@
-
 {% extends "base.html" %}
-
 {% block titulo %}
-    Loguin
+Listado de usuarios
 {% endblock titulo %}
+
+
 {% block h1_header %}
-    cambie a loguin
+    Listado de usuarios
 {% endblock h1_header %}  
+
 {% block Botones %}
 
 <a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
 {% endblock Botones %}
 
+{% block main %}
+<ul>
+    {% for cliente in clientes  %}
+    <li>
+        {{cliente}}
+    </li>
+        
+    {% endfor %}
+</ul>
 
+{% endblock main %}
