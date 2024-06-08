@@ -11,10 +11,6 @@ def inicio (request):
 def loguin (request):
     return render (request, 'loguin.html' )
 
-# def crear_usuario (request, nombre, apellido, email, contrasenia):
-#     Cliente=cliente(nombre=nombre, apellido=apellido, email=email, contrasenia=contrasenia)
-#     Cliente.save()
-#     return render (request, 'crear_usuario.html',  )
 
 def crear_usuario (request):
     # #V1
@@ -27,9 +23,7 @@ def crear_usuario (request):
     #     Cliente.save()
     # return render (request, 'crear_usuario.html' )
 
-    print('Valor de la request: ', request)
-    print('Valor de get: ' , request.GET)
-    print('Valor de post: ' , request.POST)
+   
     request.POST
     formulario=CrearUsuarioForm()
     if request.method == 'POST':
@@ -58,7 +52,12 @@ def buscar(request):
         clientes=cliente.objects.filter(nombre=user)  
         return render(request, 'respuesta.html', {'clientes':clientes})
     else:
+        
+        return render(request, 'busqueda_cliente.html' )
     
-        respuesta= "No hay datos"
-    #respuesta=f'Buscando el cliente {request.GET['nombre']}'
-    return HttpResponse(respuesta)
+
+def contacto (request):
+    return render (request, 'contacto.html' )
+
+def about (request):
+    return render (request, 'about.html' )

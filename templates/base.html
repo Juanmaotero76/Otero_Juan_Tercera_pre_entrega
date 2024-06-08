@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>
             {% block titulo %}
-            Landing Page - Start Bootstrap Theme
+        
             {% endblock titulo %}
         </title>
         <!-- Favicon-->
@@ -23,13 +23,9 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                {% comment %} <a class="navbar-brand" href={% url 'inicio' %}>inicio</a>
-                <a class="navbar-brand" href={% url 'probando' %}>probando</a>
-                <a class="navbar-brand" href={% url 'crear_auto' 'fiat' 'cronos' %}>Nuevo auto</a> {% endcomment %}
-                {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
+               
                 {% block Botones %}
-                {% comment %} <a class="navbar-brand" href={% url 'loguin' %}>Loguin</a> {% endcomment %}
-                {% comment %} <a class="navbar-brand" href={% url 'crear_usuario' 'JUAN' 'OTERO' 'algo@gmail.com' '123456' %}>Crear usuario</a> {% endcomment %}
+                
                 <a class="navbar-brand" href={% url 'crear_usuario' %}>Crear usuario</a>
                 <a class="navbar-brand" href={% url 'ver_usuarios' %}>Ver listado de usuarios</a>
                 <a class="navbar-brand" href={% url 'busqueda_cliente' %}>Buscar usuario</a>
@@ -67,15 +63,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                       {% block footer %}
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
+                            {% comment %} <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item">⋅</li> {% endcomment %}
+                            
+                            {% comment %} <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li> {% endcomment %}
                         </ul>
+                        {% endblock footer  %}
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
