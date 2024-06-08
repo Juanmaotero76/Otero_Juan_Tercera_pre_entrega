@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titulo %}
+Cliente
+{% endblock titulo %}
+
+
+{% block h1_header %}
+    Datos del cliente encontrado
+{% endblock h1_header %}  
+
+{% block Botones %}
+
+<a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
+{% endblock Botones %}
+
+{% block main %}
+<ul>
+    
+    <li>
+        {% for cliente in clientes  %}
+        <li>
+            {{cliente}}
+        </li>
+            
+        {% endfor %}
+    </li>
+        
+
+</ul>
+
+{% endblock main %}

@@ -47,3 +47,18 @@ def crear_usuario (request):
 def ver_usuarios(request): 
     clientes=cliente.objects.all()
     return render(request, 'ver_usuarios.html', {'clientes':clientes})
+
+def busqueda_cliente(request):
+    
+    return render(request, 'busqueda_cliente.html')
+
+def buscar(request):
+    if request.POST['nombre']:
+        user=request.POST['nombre']
+        clientes=cliente.objects.filter(nombre=user)  
+        return render(request, 'respuesta.html', {'clientes':clientes})
+    else:
+    
+        respuesta= "No hay datos"
+    #respuesta=f'Buscando el cliente {request.GET['nombre']}'
+    return HttpResponse(respuesta)

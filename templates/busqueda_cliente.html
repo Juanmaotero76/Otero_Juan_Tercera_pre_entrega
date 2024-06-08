@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+busqueda de clientes
+{% endblock titulo %}
+
+
+{% block h1_header %}
+    Busqueda de cliente
+{% endblock h1_header %}  
+
+{% block Botones %}
+
+<a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
+{% endblock Botones %}
+
+{% block main %}
+<form action={% url 'buscar' %} method="POST">
+    {% csrf_token %}
+    <p>
+        Nombre:
+        <input type="text" name='nombre' id='cliente' placeholder="Nombre">
+        
+    </p>
+    
+    
+    {% comment %} {{formulario}}     {% endcomment %}
+    <input type="submit" value='Buscar'>
+
+    
+</form> 
+
+{% endblock main %}
