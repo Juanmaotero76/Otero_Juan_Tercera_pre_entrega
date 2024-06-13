@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from pagina.models import cliente
-from pagina.forms import CrearUsuarioForm
+from pagina.forms import CrearUsuarioForm, BuscarUsuario
 def inicio (request):
     #return HttpResponse('Inicio capo total')
     return render(request, 'inicio/index.html')
@@ -40,20 +40,26 @@ def crear_usuario (request):
 
 def ver_usuarios(request): 
     clientes=cliente.objects.all()
+    formulario=BuscarUsuario(request.GET)
+   
     return render(request, 'ver_usuarios.html', {'clientes':clientes})
 
 def busqueda_cliente(request):
-    
-    return render(request, 'busqueda_cliente.html')
-
-def buscar(request):
-    if request.POST['nombre']:
-        user=request.POST['nombre']
-        clientes=cliente.objects.filter(nombre=user)  
-        return render(request, 'respuesta.html', {'clientes':clientes})
-    else:
+    formulario=BuscarUsuario(request.GET)
+    if formulario.is_valid():
+        nombre=formulario.cleaned_data['nombre']
+        Cliente=cliente.objects.filter(nombre__icontains=nombre)  
         
-        return render(request, 'busqueda_cliente.html' )
+    return render(request, 'busqueda_cliente.html',{'cliente':Cliente, 'formulario':formulario})
+
+def eliminar_usuario(request, id):
+    Cliente=cliente.objects.get(id=id)
+    Cliente.delete()    
+    return redirect('ver_usuarios')
+
+    
+        
+ 
     
 
 def contacto (request):

@@ -15,19 +15,22 @@ busqueda de clientes
 {% endblock Botones %}
 
 {% block main %}
-<form action={% url 'buscar' %} method="POST">
-    {% csrf_token %}
-    <p>
-        Nombre:
-        <input type="text" name='nombre' id='cliente' placeholder="Nombre">
-        
-    </p>
+<form action={% url 'busqueda_cliente' %} method="get">
+    {{formulario}}
+ 
     
-    
-    {% comment %} {{formulario}}     {% endcomment %}
-    <input type="submit" value='Buscar'>
+
+    <input type="submit" value='Buscar usuario'>
 
     
 </form> 
+<ul>
+    {% for cliente in cliente  %}
+    <li>
+        {{cliente}} | <a href={%url "eliminar_usuario" cliente.id%}>Eliminar</a>
+    </li>
+        
+    {% endfor %} 
+</ul>
 
 {% endblock main %}

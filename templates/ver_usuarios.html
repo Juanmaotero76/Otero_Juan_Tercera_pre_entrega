@@ -14,10 +14,14 @@ Listado de usuarios
 {% endblock Botones %}
 
 {% block main %}
+
+
+
+</form>
 <ul>
     {% for cliente in clientes  %}
     <li>
-        {{cliente}}
+        {{cliente}} | <a href={%url "eliminar_usuario" cliente.id%}>Eliminar</a>
     </li>
         
     {% endfor %}
