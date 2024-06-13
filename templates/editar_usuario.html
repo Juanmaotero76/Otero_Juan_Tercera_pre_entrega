@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Editar Usuario
+{% endblock titulo %}
+
+
+{% block h1_header %}
+     Editando a {{cliente}}
+{% endblock h1_header %}  
+
+{% block Botones %}
+
+<a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
+{% endblock Botones %}
+
+{% block main %}
+<form action={% url 'editar_usuario' cliente.id %} method="POST">
+    {% csrf_token %}
+    {
+    {{formulario}}    
+    <input type="submit" value='Editar'>
+
+    
+
+</form> 
+
+{% endblock main %}

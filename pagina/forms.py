@@ -8,3 +8,6 @@ class CrearUsuarioForm(forms.Form):
 
 class BuscarUsuario(forms.Form):
     nombre=forms.CharField(max_length=20, required=False)
+    
+class EditarUsuarioForm(CrearUsuarioForm):
+    ...

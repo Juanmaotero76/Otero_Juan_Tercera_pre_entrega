@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from pagina.models import cliente
-from pagina.forms import CrearUsuarioForm, BuscarUsuario
+from pagina.forms import CrearUsuarioForm, BuscarUsuario, EditarUsuarioForm
 def inicio (request):
     #return HttpResponse('Inicio capo total')
     return render(request, 'inicio/index.html')
@@ -49,7 +49,7 @@ def busqueda_cliente(request):
     if formulario.is_valid():
         nombre=formulario.cleaned_data['nombre']
         Cliente=cliente.objects.filter(nombre__icontains=nombre)  
-        
+         
     return render(request, 'busqueda_cliente.html',{'cliente':Cliente, 'formulario':formulario})
 
 def eliminar_usuario(request, id):
@@ -57,8 +57,25 @@ def eliminar_usuario(request, id):
     Cliente.delete()    
     return redirect('ver_usuarios')
 
+def editar_usuario(request, id):
+    Cliente=cliente.objects.get(id=id)
+    formulario=EditarUsuarioForm(initial={'nombre': Cliente.nombre,'apellido': Cliente.apellido , 'email':Cliente.email, 'contrasenia':Cliente.contrasenia})
+    if request.method == 'POST':  
+        formulario=EditarUsuarioForm(request.POST)
+        if formulario.is_valid():
+            datos=formulario.cleaned_data
+            Cliente.nombre=datos['nombre']
+            Cliente.apellido=datos['apellido']
+            Cliente.email=datos['email']
+            Cliente.contrasenia=datos['contrasenia']
+            Cliente.save()
+            return redirect('inicio')
     
-        
+    
+    
+    return render(request, 'editar_usuario.html', {'formulario':formulario, 'cliente':Cliente})
+
+     
  
     
 

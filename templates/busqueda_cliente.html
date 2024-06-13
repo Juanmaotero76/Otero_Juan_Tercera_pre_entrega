@@ -27,7 +27,7 @@ busqueda de clientes
 <ul>
     {% for cliente in cliente  %}
     <li>
-        {{cliente}} | <a href={%url "eliminar_usuario" cliente.id%}>Eliminar</a>
+        {{cliente}} | <a href={%url "eliminar_usuario" cliente.id%}>Eliminar</a> | <a href={%url "editar_usuario" cliente.id%}>Editar</a>
     </li>
         
     {% endfor %} 
