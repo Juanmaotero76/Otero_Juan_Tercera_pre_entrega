@@ -7,4 +7,4 @@ class cliente(models.Model):
     email = models.CharField(max_length=30)
     contrasenia = models.CharField(max_length=20, default='123456')
     def __str__(self):
-        return f'cliente {self.nombre} {self.apellido}'
+        return f'cliente {self.nombre} {self.apellido} email {self.email}'

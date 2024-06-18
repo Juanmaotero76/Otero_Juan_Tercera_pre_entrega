@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block titulo %}
+Listado de motores
+{% endblock titulo %}
+
+
+{% block h1_header %}
+    Listado de motores   
+{% endblock h1_header %}  
+
+{% block Botones %}
+
+<a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
+
+
+{% endblock Botones %}
+
+{% block main %}
+<a  href={% url 'crear_motores' %}>Nuevo</a>
+
+
+</form>
+{% if motores  %}
+<ul>
+    {% for motores in motores  %}
+    <li>
+        {{motores}} 
+         {% comment %} <a href={%url "eliminar_motores" motores.id%}>Eliminar</a> |
+         <a href={%url "editar_motores" motores.id%}>Editar</a>
+    </li> {% endcomment %}
+        
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay motores.</p>
+{% endif %}
+
+{% endblock main %}
