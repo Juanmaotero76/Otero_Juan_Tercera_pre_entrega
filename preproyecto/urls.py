@@ -20,7 +20,6 @@ from pagina.views import inicio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   # path('', inicio),
     path('', include('pagina.urls')),
     path('productos/', include('productos.urls')),
     

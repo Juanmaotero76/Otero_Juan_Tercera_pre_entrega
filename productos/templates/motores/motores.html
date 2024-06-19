@@ -20,11 +20,11 @@ Listado de motores
 
 
 </form>
-{% if motores  %}
+{% if Motores  %}
 <ul>
-    {% for motores in motores  %}
+    {% for motores in Motores  %}
     <li>
-        {{motores}} 
+        {{Motores}} 
          {% comment %} <a href={%url "eliminar_motores" motores.id%}>Eliminar</a> |
          <a href={%url "editar_motores" motores.id%}>Editar</a>
     </li> {% endcomment %}

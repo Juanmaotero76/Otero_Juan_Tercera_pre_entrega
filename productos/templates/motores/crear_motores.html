@@ -1,29 +1,22 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-Nuevo motor
+Crear Paleta
 {% endblock titulo %}
 
-
 {% block h1_header %}
-Ingreso de nuevo motor
-{% endblock h1_header %}  
-
-{% block Botones %}
-
-<a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
-{% endblock Botones %}
+Crear Paleta
+{% endblock h1_header %}
 
 {% block main %}
 
-<form action={% url 'crear_motores' %} method="POST">
+<form action={% url "crear_motores" %} method="POST">
     {% csrf_token %}
-    
-    {% comment %} {{form}}     {% endcomment %}
 
-    <input type="submit" value='Crear'>
+    {{form}}
 
-    
-</form> 
+    <input type="submit" value="Crear">
+
+</form>
 
 {% endblock main %}
