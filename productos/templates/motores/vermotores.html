@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title_head %}
+Motor
+{% endblock title_head %}
+Motor
+{% block h1_header %}
+{{motores}}
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+    <li>Marca: {{motores.marca}}</li>
+    <li>Cilindrada: {{motores.cilindrada}}</li>
+    <li>Combustible: {{motores.combustible}}</li>
+    <li>Fecha: {{motores.fecha}}</li>
+</ul>
+{% endblock main %}

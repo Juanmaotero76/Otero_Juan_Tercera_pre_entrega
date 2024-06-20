@@ -15,9 +15,13 @@ class motores(ListView):
 class crearmotores(CreateView):
     model=Motores
     template_name= 'motores/crear_motores.html'  
-    success_url=reverse_lazy(motores)
+    success_url=reverse_lazy('motores')
     fields=[ 'combustible', 'cilindrada','marca','fecha']  
     
     
 class editarmotores(UpdateView):
     ...
+class vermotores(DeleteView):
+    model=Motores   
+    template_name= 'motores/vermotores.html'
+    
