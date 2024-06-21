@@ -10,7 +10,7 @@ Editar motores
 
 {% block main %}
 
-<form action={% url "editar_motores" motores.id%} method="POST">
+<form action={% url "editarmotores" motores.id%} method="POST">
     {% csrf_token %}
 
     {{form}}

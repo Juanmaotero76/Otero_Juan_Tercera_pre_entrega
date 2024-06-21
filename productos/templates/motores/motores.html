@@ -29,6 +29,8 @@ Listado de motores
          <a href={%url "editar_motores" motores.id%}>Editar</a>
     </li> {% endcomment %}
      <a href={% url 'vermotores' motores.id %}>Ver</a>
+     <a href={%url "editarmotores" motores.id%}>Editar</a>
+     <a href={%url "eliminarmotores" motores.id%}>Eliminar</a>
     {% endfor %}
 </ul>
 {% else %}
